@@ -109,6 +109,21 @@ npm run lint
 npm run build
 ```
 
+## 🌐 Deployment to Render & Cloud Hosting
+
+This repository is fully configured for zero-config public deployment on **Render**:
+- `render.yaml` — Infrastructure-as-code Blueprint for 1-click deployment
+- `Dockerfile` & `.dockerignore` — Containerized production multi-stage build
+- `.nvmrc` — Pinned Node.js 22.14.0 for native SQLite engine
+- Health check route at `/api/health`
+
+### Deploy in 3 Steps:
+1. Push this repository to your GitHub account (`git push origin main`).
+2. Open [dashboard.render.com](https://dashboard.render.com) and click **New +** → **Blueprint** (or **Web Service**).
+3. Connect your repository, add your `GEMINI_API_KEY` in Environment Variables, and click **Deploy**!
+
+For detailed walkthrough and tips, see [DEPLOY_TO_RENDER.md](./DEPLOY_TO_RENDER.md).
+
 ---
 
 ## 🔒 Security & Privacy
@@ -117,3 +132,4 @@ npm run build
 - **Per-User Isolation**: Every document, analysis, interview session, and chat conversation is scoped by authenticated user ID.
 - **Untrusted User Data**: Resume and job description text is treated as raw data, never as system instructions.
 - **Ethical AI**: Transparent disclosures that the coach is an AI simulation. No false claims of psychological confidence detection or guaranteed job offers.
+
