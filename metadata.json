@@ -1,0 +1,6 @@
+{
+  "name": "Personal AI Coach",
+  "description": "AI-powered interview preparation platform with resume & job description analysis, three adaptive mock interviews, contextual coaching, company research, and downloadable study packs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --bg-deep: #060913;
+  --bg-surface: #0c1222;
+  --bg-card: rgba(16, 24, 43, 0.75);
+  --bg-card-hover: rgba(22, 33, 58, 0.85);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.18);
+  --violet-glow: rgba(139, 92, 246, 0.35);
+  --cyan-glow: rgba(34, 211, 238, 0.3);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-deep);
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent 70%),
+    radial-gradient(circle 600px at 100% 20%, rgba(34, 211, 238, 0.06), transparent 50%),
+    radial-gradient(circle 600px at 0% 80%, rgba(139, 92, 246, 0.08), transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #060913;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* 3D Glass Surfaces */
+.glass-panel,
+.glass-panel-3d {
+  background: linear-gradient(135deg, rgba(20, 29, 49, 0.78) 0%, rgba(12, 18, 33, 0.88) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.6),
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+.glass-panel-hover,
+.card-3d-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s ease;
+}
+
+.glass-panel-hover:hover,
+.card-3d-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.35);
+  border-top-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.75),
+    0 0 25px -5px rgba(139, 92, 246, 0.22),
+    0 1px 0 0 rgba(255, 255, 255, 0.15) inset;
+}
+
+/* 3D Primary Button */
+.btn-3d-primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #06b6d4 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 8px 20px -6px rgba(139, 92, 246, 0.5),
+    0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 1px 0 0 rgba(255, 255, 255, 0.3) inset;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-3d-primary:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 12px 28px -6px rgba(139, 92, 246, 0.65),
+    0 0 20px -2px rgba(34, 211, 238, 0.4),
+    0 1px 0 0 rgba(255, 255, 255, 0.45) inset;
+  filter: brightness(1.06);
+}
+
+.btn-3d-primary:active:not(:disabled) {
+  transform: translateY(0.5px);
+  box-shadow: 0 4px 12px -4px rgba(139, 92, 246, 0.4);
+}
+
+/* 3D Secondary Button */
+.btn-3d-secondary {
+  background: linear-gradient(135deg, rgba(26, 36, 60, 0.9) 0%, rgba(14, 21, 38, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    0 4px 12px -2px rgba(0, 0, 0, 0.35),
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset;
+  transition: all 0.2s ease;
+}
+
+.btn-3d-secondary:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  background: linear-gradient(135deg, rgba(34, 48, 80, 0.95) 0%, rgba(18, 27, 49, 0.95) 100%);
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 
+    0 8px 20px -4px rgba(0, 0, 0, 0.45),
+    0 0 15px -3px rgba(139, 92, 246, 0.2);
+}
+
+/* 3D Elevated Input */
+.input-3d {
+  background: rgba(8, 12, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4) inset;
+  transition: all 0.2s ease;
+}
+
+.input-3d:focus {
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 
+    0 2px 6px 0 rgba(0, 0, 0, 0.4) inset,
+    0 0 15px -3px rgba(139, 92, 246, 0.35);
+}
+
+/* Subtle 3D floating orb elements */
+.orb-violet {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0) 70%);
+}
+.orb-cyan {
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.2) 0%, rgba(34, 211, 238, 0) 70%);
+}
+
+/* Subtle mesh grid overlay for high-tech aesthetic */
+.tech-grid-bg {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Accessible focus */
+*:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-panel-hover:hover,
+  .btn-3d-primary:hover,
+  .btn-3d-secondary:hover {
+    transform: none !important;
+  }
+}
